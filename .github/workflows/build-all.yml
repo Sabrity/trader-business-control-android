@@ -1,17 +1,3 @@
-  - name: Remove invalid Android resource files
-        run: |
-          rm -f android-client/app/src/main/res/mipmap-mdpi/s
-          rm -f android-client/app/src/main/res/drawable/k
-          rm -f android-client/app/src/main/res/mipmap-hdpi/g
-          rm -f android-client/app/src/main/res/mipmap-xxhdpi/h
-          rm -f android-client/app/src/main/res/mipmap-xhdpi/f
-          rm -f android-client/app/src/main/res/mipmap-xxxhdpi/p
-          rm -f android-admin/app/src/main/res/mipmap-mdpi/j
-          rm -f android-admin/app/src/main/res/drawable/ap
-          rm -f android-admin/app/src/main/res/mipmap-hdpi/h
-          rm -f android-admin/app/src/main/res/mipmap-xxhdpi/g
-          rm -f android-admin/app/src/main/res/mipmap-xhdpi/y
-          rm -f android-admin/app/src/main/res/mipmap-xxxhdpi/r
 name: Build Trader Business Control Apps
 on:
   workflow_dispatch:
@@ -32,6 +18,20 @@ jobs:
           distribution: temurin
           java-version: '17'
       - uses: gradle/actions/setup-gradle@v4
+        - name: Remove invalid Android resource files
+        run: |
+          rm -f android-client/app/src/main/res/mipmap-mdpi/s
+          rm -f android-client/app/src/main/res/drawable/k
+          rm -f android-client/app/src/main/res/mipmap-hdpi/g
+          rm -f android-client/app/src/main/res/mipmap-xxhdpi/h
+          rm -f android-client/app/src/main/res/mipmap-xhdpi/f
+          rm -f android-client/app/src/main/res/mipmap-xxxhdpi/p
+          rm -f android-admin/app/src/main/res/mipmap-mdpi/j
+          rm -f android-admin/app/src/main/res/drawable/ap
+          rm -f android-admin/app/src/main/res/mipmap-hdpi/h
+          rm -f android-admin/app/src/main/res/mipmap-xxhdpi/g
+          rm -f android-admin/app/src/main/res/mipmap-xhdpi/y
+          rm -f android-admin/app/src/main/res/mipmap-xxxhdpi/r
       - name: Build APK
         working-directory: ${{ matrix.dir }}
         run: gradle :app:assembleDebug
