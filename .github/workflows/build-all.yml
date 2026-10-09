@@ -1,5 +1,8 @@
 name: Build Trader Business Control Apps
 on:
+  push:
+    branches:
+      - build-20261008-admin-client
   workflow_dispatch:
 jobs:
   android:
